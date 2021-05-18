@@ -4,12 +4,15 @@
 const divisibleNum = Number(prompt("Enter any number: "));
 if (divisibleNum % 5 === 0) {
   alert("Your number can be divided by 5");
-} else if (divisibleNum % 3 === 0) {
+} 
+if (divisibleNum % 3 === 0) {
   alert("Your number can be divided by 3");
-} else if (divisibleNum % 2 === 0) {
+} 
+if (divisibleNum % 2 === 0) {
   alert("Your number can be divided by 2");
-} else {
-  alert("Your number can not be divided by 5, 3 or 2");
+} 
+if (divisibleNum % 5 !== 0 && divisibleNum % 3 !== 0 && divisibleNum % 2 !== 0) {
+  alert("Your number can not be devided by 2, 3 or 5");
 }
 
 // Таски на циклы (Only FOR)
@@ -61,17 +64,20 @@ alert(isAdult(age));
 
 // 1) *Функция, которая запрашивает число и проверяет простое ли оно (простое число делится без остатка на себя и на единицу)
 
-const suggestedNumber = Number(prompt("Enter any number to see, if it is a natural number: "));
-function isNaturalNumber(suggestedNumber) {
+const suggestedNumber = Number(prompt("Enter any number to see, if it is a prime number: "));
+function isPrimeNumber(suggestedNumber) {
   const squareRoot = Math.sqrt(suggestedNumber);
+  if (suggestedNumber === 1) {
+    return "This is not a prime number";
+  }
   for (let i = 2; i <= squareRoot; i++) {
     if (suggestedNumber % i === 0) {
-      return "This is not a natural number";
+      return "This is not a prime number";
     }
   }
-  return "This is a natural number";
+  return "This is a prime number";
 }
-alert(isNaturalNumber(suggestedNumber)); 
+alert(isPrimeNumber(suggestedNumber)); 
 
 // 2) Создать функцию checkMultiplicity, которая принимает два числа и проверяет, делится ли первое на второе:
 
@@ -98,7 +104,7 @@ const bSide = Number(prompt("Enter second triangle side length: "));
 const cSide = Number(prompt("Enter third triangle side length: "));
 
 function isTriangleProbable(aSide, bSide, cSide) {
-  if (aSide + bSide > cSide || aSide + cSide > bSide || bSide + cSide > aSide) {
+  if (aSide + bSide > cSide && aSide + cSide > bSide && bSide + cSide > aSide) {
     return true;
   } else {
     return false;
@@ -166,11 +172,15 @@ const student = {
   contact: "2 Manchester Road London N68 3VY",
   showAdress() {
     console.log(this.contact);
+  },
+  changeGender(isMale) {
+    this.isMale = isMale;
   }
 }
 student.showAdress();
-student.isMale = false;
+student.changeGender(false);
 console.log(student.isMale);
+
 
 // 2. создать объект, который содержит свойства, о факультете и кафедре, методы: перевод на другой факультет. (можно на свой выбор)
 
